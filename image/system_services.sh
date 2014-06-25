@@ -55,6 +55,10 @@ $minimal_apt_get_install cron
 mkdir /etc/service/cron
 cp /build/runit/cron /etc/service/cron/run
 
+## Install influxdb daemon.
+mkdir /etc/service/influxdb
+cp /build/runit/influxdb /etc/service/influxdb/run
+
 ## Remove useless cron entries.
 # Checks for lost+found and scans for mtab.
 rm -f /etc/cron.daily/standard
