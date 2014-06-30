@@ -11,7 +11,10 @@ RUN mkdir /build
 ADD . /build
 
 # Need pubkey copied to root's authorized_keys
-RUN cat /build/id_rsa.pub >> /root/.ssh/authorized_keys # Will be cleaned-up later
+RUN mkdir $HOME/.ssh && \
+  chmod 700 $HOME/.ssh && \
+  cat /build/id_rsa.pub >> $HOME/.ssh/authorized_keys && \
+  chmod 440 $HOME/.ssh/authorized_keys  # Will be cleaned-up later
 
 RUN /build/prepare.sh && \
     /build/install_influxdb.sh && \
