@@ -5,4 +5,4 @@ set -o xtrace
 PIDFILE=/var/run/influxdb.pid
 CONF=/opt/influxdb/shared/config.toml
 
-exec /usr/bin/influxdb-daemon -config=$CONF -pidfile=$PIDFILE
+exec /usr/bin/influxdb -config=$CONF -pidfile=$PIDFILE
