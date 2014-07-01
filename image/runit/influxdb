@@ -2,7 +2,11 @@
 
 set -o xtrace
 
+ROOT=/opt/influxdb # Where influxdb was installed, base directory.
+CURRENT=$ROOT/current # Where most of the action is, i.e. runnable things.
+SHARED=$ROOT/shared # Configuration, log, etc.
 PIDFILE=/var/run/influxdb.pid
-CONF=/opt/influxdb/shared/config.toml
+CONF=$SHARED/config.toml # Actual configuration file that will be used.
 
+cd $CURRENT # Needed so that relative path `./admin` in config file works.
 exec /usr/bin/influxdb -config=$CONF -pidfile=$PIDFILE
