@@ -13,6 +13,7 @@ chown 999:999 $INFLUXDB_ETC/$INFLUXDB_CONF
 
 # Install necessary bits for influga and copy config file.
 /usr/bin/add-apt-repository ppa:chris-lea/node.js -y
+/usr/bin/apt-get install nodejs -y
 /usr/bin/npm install -g influga
 
 cp $WORKDIR/$INFLUGA_CONF $INFLUXDB_ETC/$INFLUGA_CONF
