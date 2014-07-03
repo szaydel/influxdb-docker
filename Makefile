@@ -1,5 +1,5 @@
 NAME = phusion/baseimage
-VERSION = 0.9.11
+VERSION = $$(cat ./VERSION)
 
 .PHONY: all build test tag_latest release ssh
 
