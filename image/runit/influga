@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -o xtrace
+
+ROOT=/opt/influxdb # Where influxdb was installed, base directory.
+CURRENT=$ROOT/current # Where most of the action is, i.e. runnable things.
+SHARED=$ROOT/shared # Configuration, log, etc.
+CONF=$SHARED/influga-config.json # Actual configuration file that will be used.
+
+cd $SHARED # Needed so that relative path `./admin` in config file works.
+exec /usr/bin/influga -c $CONF start

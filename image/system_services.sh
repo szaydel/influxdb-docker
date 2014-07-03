@@ -59,6 +59,10 @@ cp /build/runit/cron /etc/service/cron/run
 mkdir /etc/service/influxdb
 cp /build/runit/influxdb /etc/service/influxdb/run
 
+## Install influga dashboard for influxdb.
+mkdir /etc/service/influga
+cp /build/runit/influga /etc/service/influga/run
+
 ## Remove useless cron entries.
 # Checks for lost+found and scans for mtab.
 rm -f /etc/cron.daily/standard

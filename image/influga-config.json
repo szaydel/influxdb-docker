@@ -1,0 +1,8 @@
+{
+  "dashboardDbPath": "./db/influga.db",
+  "host": "localhost",
+  "port": 8086,
+  "database": "graphite",
+  "username": "root",
+  "password": "root"
+}

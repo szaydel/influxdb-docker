@@ -1,12 +1,13 @@
 FROM ubuntu:14.04
 MAINTAINER Sam Zaydel <szaydel@gmail.com>
 
-EXPOSE 22 2003 8083 8086 8090 8099
+EXPOSE 22 2003 8083 8086 8089 8090 8099
 
 ENV HOME /root
 ENV WORKDIR /build
-ENV I_CONF config.toml
-ENV I_ETC /opt/influxdb/shared
+ENV INFLUXDB_CONF config.toml
+ENV INFLUGA_CONF influga-config.json
+ENV INFLUXDB_ETC /opt/influxdb/shared
 RUN mkdir /build
 ADD . /build
 
