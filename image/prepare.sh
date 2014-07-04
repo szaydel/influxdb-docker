@@ -17,9 +17,6 @@ echo -n no > /etc/container_environment/INITRD
 sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
 
-# Latest nodejs from ppa instead of from ubuntu's repos.
-add-apt-repository ppa:chris-lea/node.js -y
-
 apt-get update
 
 ## Fix some issues with APT packages.
@@ -40,10 +37,11 @@ $minimal_apt_get_install apt-transport-https ca-certificates
 ## Install add-apt-repository
 $minimal_apt_get_install software-properties-common
 
-## Install curl package
-$minimal_apt_get_install curl
+# Latest nodejs from ppa instead of from ubuntu's repos.
+add-apt-repository ppa:chris-lea/node.js -y
 
-$minimal_apt_get_install nodejs
+## Install additional dependencies
+$minimal_apt_get_install curl nodejs
 
 ## Upgrade all packages.
 apt-get dist-upgrade -y --no-install-recommends
